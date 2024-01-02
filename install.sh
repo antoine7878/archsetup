@@ -1,12 +1,12 @@
 sudo passwd -d antoine
 sudo pacman -Syu --noconfirm
 
-# sudo pacman -S --noconfirm ntfs-3g os-prober
-# lsblk
-# read -p "Enter windows partion path ? y/N : " win_part
-# sudo mount --mkdir $win_part /mnt_win
-# sudo echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
-# sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo pacman -S --noconfirm ntfs-3g os-prober
+lsblk
+read -p "Enter windows partion path ? y/N : " win_part
+sudo mount --mkdir $win_part /mnt_win
+sudo echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 sudo pacman -S --noconfirm firefox man-db neovim vim git network-manager-applet kitty
 
