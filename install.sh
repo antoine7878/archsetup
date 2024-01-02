@@ -26,7 +26,7 @@ cd ~
 git clone https://github.com/antoine7878/dotfiles.git
 cp -r ~/dotfiles/home/.* ~/
 
-mkdir ~/.config
+mkdir -p ~/.config
 cp -r ~/dotfiles/config/* ~/.config 
 
 mkdir -p ~/.local/share/fonts
@@ -37,5 +37,14 @@ sudo cp -r ~/.config/sddm/sugar-candy /usr/share/sddm/themes/
 sudo cp -r ~/.config/sddm/sddm.conf /etc/
 
 sudo systemctl enable sddm
+
+sudo mkdir -p /etc/modprobe.d/
+sudo touch /etc/modprobe.d/blacklist-nouveau.conf
+
+sudo echo -e "blacklist nouveau/noptions nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
+
+sudo mkdir -p /etc/udev/rules.d/
+sudo touch /etc/udev/rules.d/00-remove-nvidia.rules
+sudo echo -e '# Remove NVIDIA USB xHCI Host Controller devices, if present/nACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"/n/n# Remove NVIDIA USB Type-C UCSI devices, if present/nACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"/n# Remove NVIDIA Audio devices, if present/nACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"/n/n# Remove NVIDIA VGA/3D controller devices/nACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"' >> /etc/udev/rules.d/00-remove-nvidia.rules
 
 reboot
