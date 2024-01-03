@@ -21,7 +21,7 @@ rm -rf yay
 
 yay --save --nocleanmenu --nodiffmenu
 yay --save --answerclean None --answerdiff Nonegbh
-yay -S --noconfirm --needed noto-color-emoji-fontconfig flameshot-git npm gnu-free-fonts redshift nemo brightnessctl awesome-git polybar picom alacritty betterlockscreen catppuccin-gtk-theme-mocha conky logo-ls lxappearance neovim neofetch papirus-icon-theme feh rofi xidlehook sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
+yay -S --noconfirm --needed copyq noto-color-emoji-fontconfig flameshot-git npm gnu-free-fonts redshift nemo brightnessctl awesome-git polybar picom alacritty betterlockscreen catppuccin-gtk-theme-mocha conky logo-ls lxappearance neovim neofetch papirus-icon-theme feh rofi xidlehook sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
 
 cd ~
 git clone https://github.com/antoine7878/dotfiles.git
