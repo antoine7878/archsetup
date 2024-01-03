@@ -6,9 +6,10 @@ lsblk
 read -p "Enter windows partion path ? y/N : " win_part
 sudo mount --mkdir $win_part /mnt_win
 sudo echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+sudo os-prober
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-sudo pacman -S --noconfirm noto-fonts  ttf-roboto-mono-nerd firefox man-db neovim vim git network-manager-applet kitty xclip
+sudo pacman -S --noconfirm python-requests noto-fonts ttf-roboto-mono-nerd firefox man-db neovim vim git network-manager-applet kitty xclip
 
 cd ~
 git clone https://aur.archlinux.org/yay.git
